@@ -55,13 +55,4 @@ alias ll='eza -alF --icons --color=always --group-directories-first'
 alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
 alias l.='eza -a | egrep "^\."'
-
-alias cwall='feh --bg-fill "$(find $HOME/Pictures/wallpapers | fzf )"'
-alias lwall='betterlockscreen -u "$(shuf -e -n1 $HOME/Pictures/*)"'
-alias kbd='$(sudo ~/.local/bin/kanata --cfg ~/.config/kanata/keyboard.kbd &)'
-alias keymaps="setxkbmap \
-  -model pc105 \
-  -layout 'us(dvorak),us' \
-  -option \
-  -option grp:ctrl_space_toggle \
-  -option compose:rwin"
+alias fastfetch='fastfetch --logo-type kitty --logo ~/.config/fastfetch/logo.png'
