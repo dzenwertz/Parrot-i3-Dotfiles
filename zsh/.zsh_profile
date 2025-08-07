@@ -39,7 +39,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $real
 export VISUAL="nvim"
 export EDITOR="nvim"
 export DOTFILES="$HOME/.dotfiles"
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 # Aliases
 alias nvfzf="nvim \$(fzf --preview='cat {}')"
@@ -49,7 +48,7 @@ alias python="python3"
 alias pip="pip3"
 alias vim="nvim"
 alias tmx="tmux attach -t default || tmux new -s default"
-
+alias 'zen-browser'="flatpak run app.zen_browser.zen"
 alias ls='eza --icons --color=always --group-directories-first'
 alias ll='eza -alF --icons --color=always --group-directories-first'
 alias la='eza -a --icons --color=always --group-directories-first'
