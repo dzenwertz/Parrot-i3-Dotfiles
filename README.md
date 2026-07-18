@@ -1,4 +1,4 @@
-# Joseph_ICV-Dotfiles - Perú Cyber Security Theme 🇵🇪💻
+# Parrot-i3-Dotfiles - Perú Cyber Security Theme 🇵🇪💻
 
 Configuración de entorno gráfico ultra-personalizada basada en **i3WM** para Parrot OS (u otra distribución Debian/APT), tematizada en **negro puro y rojo neón** con estética de ciberseguridad minimalista.
 
@@ -21,7 +21,7 @@ Configuración de entorno gráfico ultra-personalizada basada en **i3WM** para P
 Para instalar automáticamente todas las dependencias del sistema, clonar las configuraciones y aplicarlas, ejecuta la siguiente línea en tu terminal:
 
 ```bash
-git clone https://github.com/dzenwertz/Joseph_ICV-Dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./install.sh
+git clone https://github.com/dzenwertz/Parrot-i3-Dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./install.sh
 ```
 
 El script `install.sh` se encargará de:
