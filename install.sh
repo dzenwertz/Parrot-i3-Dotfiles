@@ -70,17 +70,10 @@ for cfg in "${configs[@]}"; do
 done
 
 # Enlazar Zsh config
-if [ -f "$DOTFILES_DIR/config/.zshrc" ]; then
-    echo -e "Enlazando: $HOME/.zshrc -> $DOTFILES_DIR/config/.zshrc"
+if [ -f "$DOTFILES_DIR/zsh/.zshrc" ]; then
+    echo -e "Enlazando: $HOME/.zshrc -> $DOTFILES_DIR/zsh/.zshrc"
     rm -f "$HOME/.zshrc"
-    ln -sf "$DOTFILES_DIR/config/.zshrc" "$HOME/.zshrc"
-else
-    # Si .zshrc está en la raíz del repo (como en Oh My Zsh normal)
-    if [ -f "$DOTFILES_DIR/.zshrc" ]; then
-        echo -e "Enlazando: $HOME/.zshrc -> $DOTFILES_DIR/.zshrc"
-        rm -f "$HOME/.zshrc"
-        ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
-    fi
+    ln -sf "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 fi
 
 # Hacer scripts ejecutables
