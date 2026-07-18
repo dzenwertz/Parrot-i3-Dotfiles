@@ -114,8 +114,42 @@ Terminal=false
 Type=Application
 Categories=Graphics;Utility;
 EOF
-    update-desktop-database "$HOME/.local/share/applications" || true
 fi
+
+# Integrar Antigravity si existe en Descargas
+antigravity_path="$HOME/Downloads/Antigravity-x64/antigravity"
+if [ -f "$antigravity_path" ]; then
+    chmod +x "$antigravity_path"
+    cat <<EOF > "$HOME/.local/share/applications/antigravity.desktop"
+[Desktop Entry]
+Name=Antigravity
+Comment=Antigravity AI Coding Assistant
+Exec=$antigravity_path
+Icon=brain
+Terminal=false
+Type=Application
+Categories=Utility;14;
+EOF
+fi
+
+# Integrar Antigravity IDE si existe en Descargas
+antigravity_ide_path="$HOME/Downloads/Antigravity IDE/antigravity-ide"
+if [ -f "$antigravity_ide_path" ]; then
+    chmod +x "$antigravity_ide_path"
+    cat <<EOF > "$HOME/.local/share/applications/antigravity-ide.desktop"
+[Desktop Entry]
+Name=Antigravity IDE
+Comment=Antigravity AI Integrated Development Environment
+Exec="$antigravity_ide_path"
+Icon=devel
+Terminal=false
+Type=Application
+Categories=Development;14;
+EOF
+fi
+
+# Actualizar base de datos de aplicaciones
+update-desktop-database "$HOME/.local/share/applications" || true
 
 echo -e "${GREEN}======================================================${NC}"
 echo -e "${GREEN}   [✔] ¡Instalación Completada con Éxito!              ${NC}"

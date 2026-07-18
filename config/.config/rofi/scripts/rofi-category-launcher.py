@@ -213,23 +213,54 @@ def main():
     current_category = None
     while True:
         if current_category is None:
-            # --- MENU 1: LISTA DE CATEGORÍAS ---
+            # --- MENU 1: LISTA DE CATEGORÍAS Y TODAS LAS APLICACIONES ---
             categories_opts = []
+            
+            # 1. Agregar categorías
             for cat in sorted(apps_grouped.keys()):
                 icon = CATEGORY_ICONS.get(cat, 'folder')
                 categories_opts.append({
                     'display': cat,
-                    'icon': icon
+                    'icon': icon,
+                    'is_category': True,
+                    'cat_name': cat
                 })
                 
-            selection = run_rofi(categories_opts, "Categorías", theme_path)
+            # 2. Agregar todas las aplicaciones ordenadas por nombre
+            all_apps = []
+            seen_apps = set()
+            for cat, apps in apps_grouped.items():
+                for app in apps:
+                    if app['name'] not in seen_apps:
+                        seen_apps.add(app['name'])
+                        all_apps.append(app)
+            
+            all_apps_sorted = sorted(all_apps, key=lambda x: x['name'].lower())
+            
+            for app in all_apps_sorted:
+                display_name = app['name']
+                if app['comment']:
+                    display_name = f"{app['name']} — {app['comment']}"
+                categories_opts.append({
+                    'display': display_name,
+                    'icon': app['icon'],
+                    'is_category': False,
+                    'app_data': app
+                })
+                
+            selection = run_rofi(categories_opts, "Buscar o elegir Categoría", theme_path)
             if not selection:
                 break # Cancelado por el usuario (ESC)
                 
-            if selection in apps_grouped:
-                current_category = selection
+            selected_opt = next((o for o in categories_opts if o['display'] == selection), None)
+            if selected_opt:
+                if selected_opt['is_category']:
+                    current_category = selected_opt['cat_name']
+                else:
+                    launch_app(selected_opt['app_data'])
+                    break
             else:
-                # Búsqueda global si el usuario escribe el nombre de una aplicación directamente y presiona Enter
+                # Búsqueda global de fallback si el usuario escribe algo personalizado y presiona Enter
                 matches = []
                 for cat, apps in apps_grouped.items():
                     for app in apps:
