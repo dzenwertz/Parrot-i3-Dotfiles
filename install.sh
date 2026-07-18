@@ -40,7 +40,8 @@ sudo apt-get install -y \
     feh \
     python3 \
     python3-i3ipc \
-    fastfetch
+    fastfetch \
+    waybar
 
 echo -e "${GREEN}[✔] Dependencias instaladas con éxito.${NC}"
 
@@ -56,7 +57,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 echo -e "${YELLOW}[3/4] Creando enlaces simbólicos de configuración...${NC}"
 
 # Enlazar carpetas de configuración (.config)
-configs=(i3 polybar rofi kitty picom fastfetch)
+configs=(i3 polybar rofi kitty picom fastfetch waybar)
 for cfg in "${configs[@]}"; do
     src="$DOTFILES_DIR/config/.config/$cfg"
     dest="$HOME/.config/$cfg"
