@@ -1,0 +1,12 @@
+/**
+ * Peru Cyber Rofi Color Theme
+ **/
+
+* {
+    background:     #080808;
+    background-alt: #121212;
+    foreground:     #ffffff;
+    selected:       #ff1a1a;
+    active:         #ff4d4d;
+    urgent:         #ff1a1a;
+}
