@@ -86,7 +86,7 @@ bindsym $mod+Shift+Right move right
 
 # Dividir ventanas en orientación horizontal ($mod+b) e vertical ($mod+v)
 bindsym $mod+b split h
-bindsym $mod+v split v
+bindsym $mod+Ctrl+v split v
 
 # Entrar en modo pantalla completa
 bindsym $mod+f fullscreen toggle
