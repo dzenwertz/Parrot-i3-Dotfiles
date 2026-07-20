@@ -197,3 +197,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Nota: La barra de i3 predeterminada (i3bar) está desactivada ya que iniciamos Polybar.
+
+# Visualizador de Música / Audio CAVA (Widget Flotante)
+bindsym $mod+Shift+m exec --no-startup-id kitty --title "Audio Visualizer (CAVA)" -e cava
+for_window [title="Audio Visualizer \(CAVA\)"] floating enable, resize set 700 280, move position center
