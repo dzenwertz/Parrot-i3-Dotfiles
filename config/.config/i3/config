@@ -201,3 +201,6 @@ bindsym $mod+r mode "resize"
 # Visualizador de Música / Audio CAVA (Widget Flotante)
 bindsym $mod+Shift+m exec --no-startup-id kitty --title "Audio Visualizer (CAVA)" -e cava
 for_window [title="Audio Visualizer \(CAVA\)"] floating enable, resize set 700 280, move position center
+
+# Historial de Portapapeles (Greenclip + Rofi)
+bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -theme ~/.config/rofi/launchers/style-4.rasi
