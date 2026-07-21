@@ -53,37 +53,26 @@ run_rofi() {
 
 # Execute Command
 run_cmd() {
-	selected="$(confirm_exit)"
-	if [[ "$selected" == "$yes" ]]; then
-		if [[ $1 == '--shutdown' ]]; then
-      i3-resurrect save &
-      $HOME/.local/bin/i3-restore/i3-save &
-			systemctl poweroff
-		elif [[ $1 == '--reboot' ]]; then
-      i3-resurrect save &
-      $HOME/.local/bin/i3-restore/i3-save &
-			systemctl reboot
-		elif [[ $1 == '--suspend' ]]; then
-			mpc -q pause
-			amixer set Master mute
-			systemctl suspend
-		elif [[ $1 == '--logout' ]]; then
-			if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
-				openbox --exit
-			elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
-				bspc quit
-			elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
-        $HOME/.local/bin/i3-restore/i3-save &
-        i3-resurrect save &
-				i3-msg exit
-			elif [[ "$DESKTOP_SESSION" == 'sway' ]]; then
-				swaymsg exit
-			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
-				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-			fi
+	if [[ $1 == '--shutdown' ]]; then
+		systemctl poweroff
+	elif [[ $1 == '--reboot' ]]; then
+		systemctl reboot
+	elif [[ $1 == '--suspend' ]]; then
+		mpc -q pause
+		amixer set Master mute
+		systemctl suspend
+	elif [[ $1 == '--logout' ]]; then
+		if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
+			openbox --exit
+		elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
+			bspc quit
+		elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
+			i3-msg exit
+		elif [[ "$DESKTOP_SESSION" == 'sway' ]]; then
+			swaymsg exit
+		elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
+			qdbus org.kde.ksmserver /KSMServer logout 0 0 0
 		fi
-	else
-		exit 0
 	fi
 }
 
