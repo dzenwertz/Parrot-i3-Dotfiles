@@ -11,6 +11,7 @@ font pango:CaskaydiaCove Nerd Font 10
 set $mod Mod4
 
 # Autostart de servicios esenciales y utilidades
+exec_always --no-startup-id systemctl --user import-environment __NV_PRIME_RENDER_OFFLOAD __GLX_VENDOR_LIBRARY_NAME __VK_LAYER_NV_optimus
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
