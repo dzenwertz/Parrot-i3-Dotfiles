@@ -42,7 +42,8 @@ sudo apt-get install -y \
     python3-i3ipc \
     fastfetch \
     waybar \
-    cava
+    cava \
+    obs-studio
 
 echo -e "${GREEN}[✔] Dependencias instaladas con éxito.${NC}"
 
