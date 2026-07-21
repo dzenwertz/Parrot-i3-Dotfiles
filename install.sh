@@ -43,7 +43,9 @@ sudo apt-get install -y \
     fastfetch \
     waybar \
     cava \
-    obs-studio
+    obs-studio \
+    audacity \
+    kdenlive
 
 echo -e "${GREEN}[✔] Dependencias instaladas con éxito.${NC}"
 
