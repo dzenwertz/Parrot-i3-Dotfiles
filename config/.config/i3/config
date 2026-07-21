@@ -160,19 +160,22 @@ bindsym $mod+Shift+e exec --no-startup-id /home/wlaz/.config/rofi/powermenu/powe
 # Selector de Fondo de Pantalla (Rofi Wallpaper Changer)
 bindsym $mod+Shift+w exec --no-startup-id /home/wlaz/.config/rofi/scripts/rofi-wallpaper-changer.sh
 
-# Gaps (Espacios entre ventanas)
-gaps inner 12
-gaps outer 6
+# Gaps (Espacios entre ventanas - Estilo Hyprland)
+gaps inner 6
+gaps outer 3
+smart_gaps on
 
-# Bordes de ventana modernos y delgados
-default_border pixel 2
-default_floating_border normal
+# Bordes de ventana ultrafinos (Estilo Hyprland/Wayland)
+default_border pixel 1
+default_floating_border pixel 1
+smart_borders on
+hide_edge_borders smart
 
 # Paleta de colores Peru Cyber para marcos de ventana
 # class                 border  backgr. text    indicator child_border
 client.focused          #ff1a1a #080808 #ffffff #ff4d4d   #ff1a1a
-client.focused_inactive #121212 #080808 #888888 #121212   #121212
-client.unfocused        #080808 #080808 #555555 #080808   #080808
+client.focused_inactive #1a1a1a #080808 #888888 #1a1a1a   #1a1a1a
+client.unfocused        #0a0a0a #080808 #555555 #0a0a0a   #0a0a0a
 client.urgent           #ff1a1a #ff1a1a #ffffff #ff1a1a   #ff1a1a
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #000000
 client.background       #080808
